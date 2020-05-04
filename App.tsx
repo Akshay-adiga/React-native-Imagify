@@ -1,19 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+
+import { Provider } from 'react-redux';
+import app from './store/reducers/appReducer';
+import Navigation from './navigations/appNavigation'
+import ReduxThunk from 'redux-thunk';
+
+const reducers = {
+  app: app
+};
+
+const rootReducer = combineReducers(reducers)
+const store: any = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

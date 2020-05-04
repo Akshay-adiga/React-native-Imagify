@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "testApp",
-    "slug": "testApp",
+    "name": "Imagify",
+    "slug": "Imagify",
     "platforms": [
       "ios",
       "android",
@@ -22,7 +22,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.cc.imagify",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.cc.imagify",
+      "versionCode": 1
     }
   }
 }
